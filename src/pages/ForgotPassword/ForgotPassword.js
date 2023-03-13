@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 function ForgotPassword() {
     return (
@@ -11,13 +12,12 @@ function ForgotPassword() {
                         <div className="card shadow-lg border-0 rounded-lg mt-5">
                         <div className="card-header">
                             <h3 className="text-center font-weight-light my-4">
-                            Password Recovery
+                                Quên Mật Khẩu
                             </h3>
                         </div>
                         <div className="card-body">
                             <div className="small mb-3 text-muted">
-                            Enter your email address and we will send you a link to reset
-                            your password.
+                                Nhập địa chỉ email của bạn và chúng tôi sẽ gửi cho bạn một liên kết để đặt lại mật khẩu của bạn.
                             </div>
                             <form>
                             <div className="form-floating mb-3">
@@ -27,22 +27,20 @@ function ForgotPassword() {
                                 type="email"
                                 placeholder="name@example.com"
                                 />
-                                <label htmlFor="inputEmail">Email address</label>
+                                <label htmlFor="inputEmail">Email</label>
                             </div>
                             <div className="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                <a className="small" href="login.html">
-                                Return to login
-                                </a>
-                                <a className="btn btn-primary" href="login.html">
-                                Reset Password
-                                </a>
+                                <Link className="small" to="/user/login">
+                                Trở về trang đăng nhập
+                                </Link>
+                                <Link className="btn btn-primary" href="login.html">
+                                 Lấy Mật Khẩu
+                                </Link>
                             </div>
                             </form>
                         </div>
                         <div className="card-footer text-center py-3">
-                            <div className="small">
-                            <a href="register.html">Need an account? Sign up!</a>
-                            </div>
+                           
                         </div>
                         </div>
                     </div>

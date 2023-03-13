@@ -373,6 +373,11 @@ select:disabled {
   display: none;
 }
 
+#layoutSidenav_content{
+  height: 600PX;
+  overflow-y: scroll;
+}
+
 button,
 [type=button],
 [type=reset],
@@ -7864,6 +7869,29 @@ textarea.form-control-lg {
 
 .bg-gray{
   background-color: #4e554a !important;
+}
+
+.btn-bg{
+  border: 0;
+  color: #fff; 
+  border-radius: 5px;
+}
+
+.btn-bg:hover{
+  background-color: #61df24;
+}
+
+.btn-send{
+    background: #48c80c url(/assets/img/gui.png) no-repeat 40px center;
+    padding-left: 70px;
+    padding-right: 50px;
+}
+
+.btn-reset{
+    background: #48c80c ;
+    padding-left: 60px;
+    padding-right: 60px;
+    margin-left: 20px;
 }
 
 .bg-grd{

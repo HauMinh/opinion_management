@@ -22,7 +22,7 @@ function Login() {
                                 type="email"
                                 placeholder="name@example.com"
                                 />
-                                <label htmlFor="inputEmail">Email address</label>
+                                <label htmlFor="inputEmail">Email</label>
                             </div>
                             <div className="form-floating mb-3">
                                 <input
@@ -31,7 +31,7 @@ function Login() {
                                 type="password"
                                 placeholder="Password"
                                 />
-                                <label htmlFor="inputPassword">Password</label>
+                                <label htmlFor="inputPassword">Mật khẩu</label>
                             </div>
                             <div className="form-check mb-3">
                                 <input
@@ -44,23 +44,21 @@ function Login() {
                                 className="form-check-label"
                                 htmlFor="inputRememberPassword"
                                 >
-                                Remember Password
+                                Ghi nhớ mật khẩu
                                 </label>
                             </div>
                             <div className="d-flex align-items-center justify-content-between mt-4 mb-0">
                                 <Link className="small" to="/login/fpassword">
-                                    Forgot Password?
+                                    Quên mật khẩu?
                                 </Link>
                                 <a className="btn btn-primary" href="index.html">
-                                Login
+                                    Đăng Nhập
                                 </a>
                             </div>
                             </form>
                         </div>
                         <div className="card-footer text-center py-3">
-                            <div className="small">
-                            <a href="register.html">Need an account? Sign up!</a>
-                            </div>
+                           
                         </div>
                         </div>
                     </div>

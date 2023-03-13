@@ -1,9 +1,50 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 import {Link } from 'react-router-dom';
+import { toast } from "react-toastify";
 import Footer from '../../components/Layout/Admin/Footer/Footer';
+import OpinionService from '../../services/OpinionService';
+import {useState,useEffect} from 'react';
 
 
 function OpinionList() {
+    const [opinions, setOpinions]= useState([]);
+   
+    useEffect(() =>{    
+        getAllOpinions();
+   
+    }, [])
+   
+
+   const getAllOpinions = ()=>{
+        OpinionService.getOpinion()
+        .then((res) =>{
+            setOpinions(res.data._embedded);
+            console.log("data1",res.data._embedded)
+        })
+        .catch(error =>{
+            console.log(error);
+        })
+       
+    }
+   
+    const deleteOpinion = (opinionId)=>{
+        console.log("id",opinionId);
+        OpinionService.deleteOpinion(opinionId)
+        .then((response)=>{
+            console.log(response.data)
+            getAllOpinions();
+        })
+        .catch(error =>{
+            console.log(error.response.data);
+        })
+        toast.error("Xóa thành công!", {
+            position: "bottom-left",
+        });
+    }
+    
+
     return (  
         <div id="layoutSidenav_content">
             <main>
@@ -11,7 +52,7 @@ function OpinionList() {
                     <h2 className="mt-4">Danh sách tổng hợp các ý kiến, góp ý.</h2>
                     <ol className="breadcrumb mb-4">
                         <li className="breadcrumb-item">
-                        Dashboard
+                          Dashboard
                         </li>
                         <li className="breadcrumb-item active">Danh sách ý kiến</li>
                     </ol>
@@ -25,7 +66,7 @@ function OpinionList() {
                         <table id="datatablesSimple">
                             <thead>
                             <tr>
-                                <th>Id</th>
+                                {/* <th>Id</th> */}
                                 <th>Họ tên</th>
                                 <th>Địa chỉ</th>
                                 <th>Email</th>
@@ -36,21 +77,27 @@ function OpinionList() {
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>        
-                                <td>01</td>
-                                <td>Trịnh Minh Hậu</td>
-                                <td>Quảng Nam</td>
-                                <td>hau@gmail.com</td>
-                                <td>0389955268</td>
-                                <td>Cơ sở vật chất</td>
-                                <td>10/03/2023</td>
-                                <td>
-                                <tr>
-                                    <td><button>xóa</button></td>
-                                    <td><Link to="/admin/detail">xem chi tiết</Link></td>
-                                </tr>
-                                </td>   
-                            </tr>
+                                {
+                                    opinions.map(
+                                        opinion =>
+                                        <tr key={opinion._id.$oid}>
+                                            {/* <td>{opinion._id.$oid}</td> */}
+                                            <td>{opinion.hoten}</td>
+                                            <td>{opinion.diachi}</td>
+                                            <td>{opinion.email}</td>
+                                            <td>{opinion.sodienthoai}</td>
+                                            <td>{opinion.tieude}</td>
+                                            <td>{opinion.ngaygui}</td>
+                                            <td>
+                                                <tr>
+                                                    <td><button className="btn btn-danger"  onClick = {() =>{if(window.confirm('Bạn chắc chắn muốn xóa?')) {deleteOpinion(opinion._id.$oid)};}}>xóa</button></td>
+                                                    {/* <td><Link to="/opinion/detail">xem chi tiết</Link></td> */}
+                                                    <td><Link to={`/opinion/${opinion._id.$oid}`} className="btn btn-primary ms-2">xem chi tiết</Link></td>
+                                                </tr>
+                                            </td>             
+                                        </tr>
+                                    )
+                                }
                             </tbody>
                         </table>           
                         </div>

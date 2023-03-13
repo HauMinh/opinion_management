@@ -7,7 +7,9 @@ function LayoutUser() {
     return (
         <>
             <Header/>
-                <Outlet/>
+                <div style={{minHeight:600}}>
+                    <Outlet/>
+                </div>
             <Footer/>
         </>
     );
