@@ -1,9 +1,25 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
+    const navigate = useNavigate();
+    const iconLoading = document.getElementById("loading");
+    const showLoading = () => {
+      iconLoading.style.display = "flex";
+  };
+    const logout = () => {
+      showLoading();
+      setTimeout(() => {
+        navigate("/", { replace: true });
+        }, 1000);
+    };
+
     return (
         <>
+         <div className="loading" id="loading" >
+                <img src="https://thumbs.gfycat.com/HighCorruptIsabellineshrike-max-1mb.gif" alt="loading"/>
+            </div>
           <nav className="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             {/* Navbar Brand*/}
             <Link className="navbar-brand ps-3" to='/'>
@@ -49,9 +65,9 @@ function Header() {
                     <hr className="dropdown-divider" />
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#!">
+                    <button type="button" onClick={logout} className="dropdown-item" >
                       Logout
-                    </a>
+                    </button>
                   </li>
                 </ul>
               </li>

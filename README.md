@@ -71,5 +71,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 <!-- 
 Lệnh chạy cmd RESTheart
- java -jar restheart.jar
+ java -jar restheart.jar 
+ 
+ java -Dfile.encoding=UTF-8 -server -jar restheart.jar
+
 -->

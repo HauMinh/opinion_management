@@ -17,20 +17,15 @@ function PublicRoutes() {
         <BrowserRouter>
         <ToastContainer/>
          <Routes>
-           {/* <Route path="/" element={<LayoutUser/>}>
-           <Route index element={<CreateOpinion/>}/>
-           <Route path="/user/login" element={<Login/>}/>
-           <Route path="/login/fpassword" element={<ForgotPassword/>}/> */}
-
-   
-           <Route path="/" element={<LayoutAdmin/>}>  
-                <Route index element={<OpinionList/>}/>
-                <Route path="/admin/opinion" element={<OpinionList/>}/>
-                {/* <Route path="/opinion/detail" element={<OpinionDetail/>}/> */}
-                <Route exact path="/opinion/:id"  element={<OpinionDetail/>}/>
-
-
-              
+           <Route  element={<LayoutUser/>}>
+                <Route path="/" element={<CreateOpinion/>}/>
+                <Route path="/login" element={<Login/>}/>
+                <Route path="/fpassword" element={<ForgotPassword/>}/>  
+           </Route>
+           <Route  element={<LayoutAdmin/>}>  
+                <Route  path="/admin/opinion" element={<OpinionList/>}/>
+                <Route path="/opinion/detail" element={<OpinionDetail/>}/>
+                <Route exact path="/opinion/:id"  element={<OpinionDetail/>}/>              
            </Route>
            <Route path="*" element={<NotFound/>}/>    
          </Routes>

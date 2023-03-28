@@ -14,7 +14,7 @@ function Header() {
             </Link>
             <span className="ms-auto"></span>
             {/* Navbar*/}
-           <Link to="/user/login" className=' text-white'>
+           <Link to="/login" className=' text-white'>
               <i className="fas fa-user fa-fw text-white" /> Đăng Nhập
            </Link>
              
